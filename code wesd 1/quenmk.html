@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+  <title>Quên mật khẩu</title>
+  <div id="google_translate_element"></div>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 400px;">
+      <div class="card-body">
+        <h5 class="card-title text-center">Quên mật khẩu</h5>
+        <p class="card-text text-center">Nhập địa chỉ email của bạn để đặt lại mật khẩu.</p>
+        <form id="forgotPasswordForm">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Gửi lại mật khẩu</button>
+          <p id="message" class="mt-3 text-center"></p>
+        </form>
+        <p class="text-center mt-3"><a href="dangnhap.html">Đăng nhập</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <script >
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  }
+  document.addEventListener("DOMContentLoaded", function() {
+  const forgotPasswordForm = document.getElementById("forgotPasswordForm");
+  const messageElement = document.getElementById("message");
+
+  forgotPasswordForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    // Lấy giá trị email từ input
+    const email = document.getElementById("email").value;
+
+    // Kiểm tra email có hợp lệ không (ở đây chỉ kiểm  tra đơn giản)
+    if (!isValidEmail(email)) {
+      showMessage("Vui lòng nhập một địa chỉ email hợp lệ.");
+      return;
+    }
+
+    // Gửi yêu cầu đặt lại mật khẩu (trong ví dụ này, chỉ là hiển thị thông báo)
+    showMessage(`Yêu cầu đặt lại mật khẩu đã được gửi đến ${email}. Kiểm tra email của bạn.`);
+
+    // Để thực hiện đặt lại mật khẩu thực tế, bạn cần gửi yêu cầu đến máy chủ và xử lý logic phía máy chủ.
+
+    // Reset form sau khi gửi thành công
+    forgotPasswordForm.reset();
+  });
+
+  // Hàm kiểm tra định dạng email đơn giản
+  function isValidEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
+  // Hàm hiển thị thông báo
+  function showMessage(message) {
+    messageElement.innerText = message;
+  }
+
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tìm chuyến bay </title>
+<link rel="stylesheet" href="datngay.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+body {
+  background-image: url('https://th.bing.com/th/id/OIP.c7rNWpWNzSzxgXmp4191HwAAAA?rs=1&pid=ImgDetMain');
+  background-size: cover; 
+  background-position: center; 
+  background-attachment: fixed; 
+  height: 100%; 
+  overflow: auto; 
+}
+</style>
+<body>
+  <div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
+      <div class="header text-center mb-4" >
+      <form id="bookingForm" >
+        <h1 style="font-size: 7ch; text-align: center; " >Tìm chuyến bay </h1>
+
+
+        <h3>Thông tin hành khách</h3>
+        <div class="form-row">
+          <div class="form-group col-md-12" style=" margin-bottom: 10px;">
+            <label for="passengerName">Họ và tên hành khách</label>
+            <input type="text" class="form-control" id="passengerName" name="passengerName" required placeholder="Họ và tên">
+          </div>
+          <div class="form-group col-md-12" style=" margin-bottom: 10px;">
+            <label for="dob">Ngày sinh</label>
+            <input type="date" class="form-control" id="dob" name="dob" required >
+          </div>
+        </div>
+        <h3>Thông tin nhận vé</h3>
+        <div class="form-group">
+          <label for="deliveryAddress" style=" margin-bottom: 10px;">Địa chỉ nhận vé</label>
+          <input type="text" class="form-control" id="deliveryAddress" name="deliveryAddress" required placeholder="Nhập địa chỉ " >
+        </div>
+        <h3>Thông tin hành trình</h3>
+        <div class="form-row">
+          <div class="form-group col-md-12" style=" margin-bottom: 10px;">
+            <label for="flightRoute">Chặng bay</label>
+            <input type="text" class="form-control" id="flightRoute" name="flightRoute" required >
+          </div>
+          <div class="form-group col-md-12" style=" margin-bottom: 10px;">
+            <label for="departureTime">Thời gian khởi hành</label>
+            <input type="datetime-local" class="form-control" id="departureTime" name="departureTime" required >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="airline" style=" margin-bottom: 10px;">Hãng máy bay </label>
+          <input type="text" class="form-control" id="airline" name="airline" required  >
+        </div>
+        <h3  style=" margin-bottom: 15px;">Thông tin thanh toán</h3>
+        <div class="form-group" style=" margin-bottom: 30px;">
+          <label for="bankInfo" >Thông tin thẻ ngân hàng</label>
+          <input type="text" class="form-control" id="bankInfo" name="bankInfo" required>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" style="background-color: rgb(37, 97, 146);">Tìm chuyến bay</button>
+        </div>
+      </form>
+      <div id="bookingResult" style="display: none;" class="mt-4">
+        <h3 class="text-center">Kết quả đặt vé</h3>
+        <div id="bookingInfo" class="text-center"></div>
+      </div>
+    </div>
+  </div>
+  
+<script src="datngay.js"></script>
+</body>
+</html>
+
